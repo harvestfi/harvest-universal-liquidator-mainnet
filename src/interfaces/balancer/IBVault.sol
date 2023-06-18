@@ -270,7 +270,9 @@ interface IBVault {
      *
      * Emits a `PoolBalanceChanged` event.
      */
-    function joinPool(bytes32 poolId, address sender, address recipient, JoinPoolRequest calldata request) external payable;
+    function joinPool(bytes32 poolId, address sender, address recipient, JoinPoolRequest calldata request)
+        external
+        payable;
 
     enum JoinKind {
         INIT,
@@ -325,7 +327,8 @@ interface IBVault {
      *
      * Emits a `PoolBalanceChanged` event.
      */
-    function exitPool(bytes32 poolId, address sender, address payable recipient, ExitPoolRequest calldata request) external;
+    function exitPool(bytes32 poolId, address sender, address payable recipient, ExitPoolRequest calldata request)
+        external;
 
     struct ExitPoolRequest {
         IAsset[] assets;
@@ -338,7 +341,11 @@ interface IBVault {
      * @dev Emitted when a user joins or exits a Pool by calling `joinPool` or `exitPool`, respectively.
      */
     event PoolBalanceChanged(
-        bytes32 indexed poolId, address indexed liquidityProvider, IERC20[] tokens, int256[] deltas, uint256[] protocolFeeAmounts
+        bytes32 indexed poolId,
+        address indexed liquidityProvider,
+        IERC20[] tokens,
+        int256[] deltas,
+        uint256[] protocolFeeAmounts
     );
 
     enum PoolBalanceChangeKind {
@@ -494,7 +501,9 @@ interface IBVault {
     /**
      * @dev Emitted for each individual swap performed by `swap` or `batchSwap`.
      */
-    event Swap(bytes32 indexed poolId, IERC20 indexed tokenIn, IERC20 indexed tokenOut, uint256 amountIn, uint256 amountOut);
+    event Swap(
+        bytes32 indexed poolId, IERC20 indexed tokenIn, IERC20 indexed tokenOut, uint256 amountIn, uint256 amountOut
+    );
 
     /**
      * @dev All tokens in a swap are either sent from the `sender` account to the Vault, or from the Vault to the

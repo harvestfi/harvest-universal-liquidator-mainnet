@@ -15,10 +15,16 @@ import "../libraries/Errors.sol";
 import {ULRegistryStorage} from "./storage/ULRegistry.sol";
 
 contract UniversalLiquidatorRegistry is Ownable, IUniversalLiquidatorRegistry, ULRegistryStorage {
-    function getPath(address _sellToken, address _buyToken) public view override returns (DataTypes.SwapInfo[] memory) {
+    function getPath(address _sellToken, address _buyToken)
+        public
+        view
+        override
+        returns (DataTypes.SwapInfo[] memory)
+    {
         if (paths[_sellToken][_buyToken].dex != bytes32(0)) {
             DataTypes.SwapInfo[] memory retPaths = new DataTypes.SwapInfo[](1);
-            retPaths[0] = DataTypes.SwapInfo(dexesInfo[paths[_sellToken][_buyToken].dex], paths[_sellToken][_buyToken].paths);
+            retPaths[0] =
+                DataTypes.SwapInfo(dexesInfo[paths[_sellToken][_buyToken].dex], paths[_sellToken][_buyToken].paths);
             return retPaths;
         }
 
@@ -32,10 +38,12 @@ contract UniversalLiquidatorRegistry is Ownable, IUniversalLiquidatorRegistry, U
                     2
                 );
                 retPaths[0] = DataTypes.SwapInfo(
-                    dexesInfo[paths[_sellToken][_intermediateTokens[idx]].dex], paths[_sellToken][_intermediateTokens[idx]].paths
+                    dexesInfo[paths[_sellToken][_intermediateTokens[idx]].dex],
+                    paths[_sellToken][_intermediateTokens[idx]].paths
                 );
                 retPaths[1] = DataTypes.SwapInfo(
-                    dexesInfo[paths[_intermediateTokens[idx]][_buyToken].dex], paths[_intermediateTokens[idx]][_buyToken].paths
+                    dexesInfo[paths[_intermediateTokens[idx]][_buyToken].dex],
+                    paths[_intermediateTokens[idx]][_buyToken].paths
                 );
                 return retPaths;
             }
