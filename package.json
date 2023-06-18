@@ -7,8 +7,11 @@
     "lib": "lib",
     "test": "test"
   },
+  "private": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/harvestfi/harvest-universal-liquidator-mainnet/issues"
   },
-  "homepage": "https://github.com/harvestfi/harvest-universal-liquidator-mainnet#readme"
+  "homepage": "https://github.com/harvestfi/harvest-universal-liquidator-mainnet#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "husky": "^8.0.3",
+    "pinst": "^3.0.0"
+  }
 }
