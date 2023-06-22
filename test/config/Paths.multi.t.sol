@@ -10,48 +10,48 @@ abstract contract MultiSwapPaths {
     constructor() {
         address[] memory _path = new address[](3);
 
-        // Pair0 - WMAITC -> USDC -> AAVE
-        _path[0] = 0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270;
-        _path[1] = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;
-        _path[2] = 0xD6DF932A45C0f255f85145f286eA0b292B21C90B;
+        // Pair0 - AAVE -> WETH -> 1INCH
+        _path[0] = 0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9;
+        _path[1] = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+        _path[2] = 0x111111111117dC0aa78b770fA6A738034120C302;
 
         Types.TokenPair storage newTokenPair = _multiTokenPairs[_multiTokenPairCount++];
-        newTokenPair.sellToken = 0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270;
-        newTokenPair.buyToken = 0xD6DF932A45C0f255f85145f286eA0b292B21C90B;
-        newTokenPair.whale = 0x21Cb017B40abE17B6DFb9Ba64A3Ab0f24A7e60EA;
+        newTokenPair.sellToken = 0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9;
+        newTokenPair.buyToken = 0x111111111117dC0aa78b770fA6A738034120C302;
+        newTokenPair.whale = 0x0548F59fEE79f8832C299e01dCA5c76F034F558e;
         newTokenPair.dexSetup.push(Types.DexSetting("UniV3Dex", _path));
 
-        // Pair1 - GHST -> USDC -> BAL
-        _path[0] = 0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7;
-        _path[1] = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;
-        _path[2] = 0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3;
+        // Pair1 - BAL -> WETH -> rETH
+        _path[0] = 0xba100000625a3754423978a60c9317c58a424e3D;
+        _path[1] = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+        _path[2] = 0xae78736Cd615f374D3085123A210448E74Fc6393;
 
         newTokenPair = _multiTokenPairs[_multiTokenPairCount++];
-        newTokenPair.sellToken = 0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7;
-        newTokenPair.buyToken = 0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3;
-        newTokenPair.whale = 0xDE5D496dD39663F604bBDd7F5C146dBA77e68Dde;
+        newTokenPair.sellToken = 0xba100000625a3754423978a60c9317c58a424e3D;
+        newTokenPair.buyToken = 0xae78736Cd615f374D3085123A210448E74Fc6393;
+        newTokenPair.whale = 0xeb54417FA789cEF92b636b69154d92217E4b23f3;
         newTokenPair.dexSetup.push(Types.DexSetting("BalancerDex", _path));
 
         // Pair2 - SUSHI -> WETH -> AAVE
-        _path[0] = 0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a;
-        _path[1] = 0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619;
-        _path[2] = 0xD6DF932A45C0f255f85145f286eA0b292B21C90B;
+        _path[0] = 0x6B3595068778DD592e39A122f4f5a5cF09C90fE2;
+        _path[1] = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+        _path[2] = 0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9;
 
         newTokenPair = _multiTokenPairs[_multiTokenPairCount++];
-        newTokenPair.sellToken = 0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a;
-        newTokenPair.buyToken = 0xD6DF932A45C0f255f85145f286eA0b292B21C90B;
-        newTokenPair.whale = 0x75F101a581A6be2C65b060B2Ac88F88046c54852;
+        newTokenPair.sellToken = 0x6B3595068778DD592e39A122f4f5a5cF09C90fE2;
+        newTokenPair.buyToken = 0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9;
+        newTokenPair.whale = 0x0990165a42B2c4fc00B71e5dbaA5Be6B3B11c953;
         newTokenPair.dexSetup.push(Types.DexSetting("SushiswapDex", _path));
 
-        // Pair3 - axlUSDC -> USDC -> USDT
-        _path[0] = 0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed;
-        _path[1] = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;
-        _path[2] = 0xc2132D05D31c914a87C6611C10748AEb04B58e8F;
+        // Pair3 - DAI -> USDT -> FRAX
+        _path[0] = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
+        _path[1] = 0xdAC17F958D2ee523a2206206994597C13D831ec7;
+        _path[2] = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
 
         newTokenPair = _multiTokenPairs[_multiTokenPairCount++];
-        newTokenPair.sellToken = 0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed;
-        newTokenPair.buyToken = 0xc2132D05D31c914a87C6611C10748AEb04B58e8F;
-        newTokenPair.whale = 0xE743a49F04F2f77eB2D3b753aE3AD599dE8CEA84;
+        newTokenPair.sellToken = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
+        newTokenPair.buyToken = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
+        newTokenPair.whale = 0x8Ce71EF87582B28De89D14970D00b2377F93F32b;
         newTokenPair.dexSetup.push(Types.DexSetting("CurveDex", _path));
     }
 }
