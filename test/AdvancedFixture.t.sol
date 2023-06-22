@@ -30,7 +30,7 @@ abstract contract AdvancedFixture is
     EnvVariables,
     Types
 {
-    uint256 _polygonFork;
+    uint256 _forkNetwork;
 
     UniversalLiquidator internal _universalLiquidator;
     UniversalLiquidatorRegistry internal _universalLiquidatorRegistry;
@@ -43,17 +43,16 @@ abstract contract AdvancedFixture is
     string[] internal _dexes;
     mapping(string => Dex) internal _dexesByName;
     address[] internal _intermediateTokens = [
-        0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619, // WETH
-        0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270, // WMATIC
-        0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174, // USDC
-        0xc2132D05D31c914a87C6611C10748AEb04B58e8F // USDT
+        0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, // WETH
+        0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, // USDC
+        0xdAC17F958D2ee523a2206206994597C13D831ec7 // USDT
     ];
 
     constructor() {
         startHoax(EnvVariables._governance);
         // fork testing environment
-        _polygonFork = vm.createFork(_POLYGON_RPC_URL);
-        vm.selectFork(_polygonFork);
+        _forkNetwork = vm.createFork(_RPC_URL);
+        vm.selectFork(_forkNetwork);
         // deploy UL, ULR, and dexes
         _universalLiquidatorRegistry = new UniversalLiquidatorRegistry();
         _universalLiquidator = new UniversalLiquidator();
