@@ -30,9 +30,7 @@ contract BancorV2Dex is Ownable, ILiquidityDex, BancorV2DexStorage {
     {
         address sellToken = _path[0];
         address buyToken = _path[_path.length - 1];
-
-        address finalTarget = _receiver;
-
+        address finalReceiver = _receiver;
         address network = getBancorNetworkContract();
 
         if (sellToken == Addresses._WETH) {
@@ -43,8 +41,8 @@ contract BancorV2Dex is Ownable, ILiquidityDex, BancorV2DexStorage {
         }
 
         if (buyToken == Addresses._WETH) {
-            buyToken = Addresses._BANCOR_ETH;
             // we will be receiving eth here, and wrap it back to WETH
+            buyToken = Addresses._BANCOR_ETH;
             _receiver = address(this);
         }
 
@@ -57,10 +55,9 @@ contract BancorV2Dex is Ownable, ILiquidityDex, BancorV2DexStorage {
         // If buyToken is bancorEth, then this contract has received ETH after the swap.
         // ETH should be wrapped back to WETH
         if (buyToken == Addresses._BANCOR_ETH) {
-            uint256 ethBalance = address(this).balance;
-            WETH9(Addresses._WETH).deposit{value: ethBalance}();
+            WETH9(Addresses._WETH).deposit{value: address(this).balance}();
             outTokenReturned = IERC20(Addresses._WETH).balanceOf(address(this));
-            IERC20(Addresses._WETH).safeTransfer(finalTarget, outTokenReturned);
+            IERC20(Addresses._WETH).safeTransfer(finalReceiver, outTokenReturned);
         }
 
         return outTokenReturned;
