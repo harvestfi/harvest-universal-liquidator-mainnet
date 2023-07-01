@@ -85,8 +85,8 @@ abstract contract AdvancedFixture is
 
         _bancorV2Dex = new BancorV2Dex();
         _dexes.push("BancorV2Dex");
-        _dexesByName["BancorV2Dex"] = Dex(address(_bancorV2Dex), bytes32(bytes("bancor")));
-        _universalLiquidatorRegistry.addDex(bytes32(bytes("bancor")), address(_bancorV2Dex));
+        _dexesByName["BancorV2Dex"] = Dex(address(_bancorV2Dex), bytes32(bytes("bancorV2")));
+        _universalLiquidatorRegistry.addDex(bytes32(bytes("bancorV2")), address(_bancorV2Dex));
     }
 
     function _setupPools() internal {
