@@ -1,0 +1,9 @@
+[
+  {
+    "sellToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "buyToken": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "dexName": "UniV3Dex",
+    "fee": "500",
+    "description": "WETH -> WBTC"
+  }
+]
