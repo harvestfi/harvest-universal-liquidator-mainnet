@@ -56,5 +56,15 @@
       "address": "0x63f3c586fb0d316dc891541901c748599139ce5c",
       "id": "bancorV2"
     }
+  },
+  "eth-mainnet": {
+    "UniversalLiquidator": "0xf410024a8521d04a77ad8ea6d2dfe37c99e38760",
+    "UniversalLiquidatorRegistry": "0x9a9c4fa5083c19a8007f28b1fae861562959243f",
+    "UniV3Dex": "",
+    "BalancerDex": "",
+    "SushiswapDex": "",
+    "CurveDex": "",
+    "BancorV2Dex": "",
+    "<new-address-item-to-store>": ""
   }
 }
