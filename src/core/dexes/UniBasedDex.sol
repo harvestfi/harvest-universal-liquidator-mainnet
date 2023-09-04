@@ -30,8 +30,9 @@ contract UniBasedDex is Ownable, ILiquidityDex, BaseDexStorage {
 
         IERC20(sellToken).safeIncreaseAllowance(_router, _sellAmount);
 
-        uint256[] memory returned =
-            IUniswapV2Router02(_router).swapExactTokensForTokens(_sellAmount, _minBuyAmount, _path, _receiver, block.timestamp);
+        uint256[] memory returned = IUniswapV2Router02(_router).swapExactTokensForTokens(
+            _sellAmount, _minBuyAmount, _path, _receiver, block.timestamp
+        );
 
         return returned[returned.length - 1];
     }
