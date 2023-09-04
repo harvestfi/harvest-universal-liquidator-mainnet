@@ -49,5 +49,15 @@ abstract contract SingleSwapPaths {
         newTokenPair.buyToken = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
         newTokenPair.whale = 0x171cda359aa49E46Dec45F375ad6c256fdFBD420;
         newTokenPair.dexSetup.push(Types.DexSetting("CurveDex", _path));
+
+        // Pair3 - FARM -> BNT
+        _path[0] = 0xa0246c9032bC3A600820415aE600c6388619A14D;
+        _path[1] = 0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C;
+
+        newTokenPair = _singleTokenPairs[_singleTokenPairCount++];
+        newTokenPair.sellToken = 0xa0246c9032bC3A600820415aE600c6388619A14D;
+        newTokenPair.buyToken = 0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C;
+        newTokenPair.whale = 0x49d71131396F23F0bCE31dE80526D7C025981c4d;
+        newTokenPair.dexSetup.push(Types.DexSetting("BancorV2Dex", _path));
     }
 }

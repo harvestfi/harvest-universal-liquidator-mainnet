@@ -26,7 +26,7 @@ contract UniV3Dex is Ownable, ILiquidityDex, UniswapV3DexStorage {
     {
         address sellToken = _path[0];
 
-        IERC20(sellToken).safeIncreaseAllowance(Addresses.uniswapV3Router, _sellAmount);
+        IERC20(sellToken).safeIncreaseAllowance(Addresses._UNISWAPV3_ROUTER, _sellAmount);
 
         bytes memory encodedPath = abi.encodePacked(sellToken);
         for (uint256 idx = 1; idx < _path.length;) {
@@ -44,7 +44,8 @@ contract UniV3Dex is Ownable, ILiquidityDex, UniswapV3DexStorage {
             amountOutMinimum: _minBuyAmount
         });
 
-        return ISwapRouter(Addresses.uniswapV3Router).exactInput(param);
+        return ISwapRouter(Addresses._UNISWAPV3_ROUTER).exactInput(param);
+
     }
 
     function pairFee(address _sellToken, address _buyToken) public view returns (uint24 fee) {

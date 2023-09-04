@@ -43,15 +43,15 @@ abstract contract MultiSwapPaths {
         newTokenPair.whale = 0x0990165a42B2c4fc00B71e5dbaA5Be6B3B11c953;
         newTokenPair.dexSetup.push(Types.DexSetting("SushiswapDex", _path));
 
-        // Pair3 - DAI -> USDT -> FRAX
-        _path[0] = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-        _path[1] = 0xdAC17F958D2ee523a2206206994597C13D831ec7;
-        _path[2] = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
+        // Pair3 - WETH -> BNT -> FARM
+        _path = new address[](2);
+        _path[0] = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+        _path[1] = 0xa0246c9032bC3A600820415aE600c6388619A14D;
 
         newTokenPair = _multiTokenPairs[_multiTokenPairCount++];
-        newTokenPair.sellToken = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-        newTokenPair.buyToken = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
-        newTokenPair.whale = 0x8Ce71EF87582B28De89D14970D00b2377F93F32b;
-        newTokenPair.dexSetup.push(Types.DexSetting("CurveDex", _path));
+        newTokenPair.sellToken = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+        newTokenPair.buyToken = 0xa0246c9032bC3A600820415aE600c6388619A14D;
+        newTokenPair.whale = 0x4F4495243837681061C4743b74B3eEdf548D56A5;
+        newTokenPair.dexSetup.push(Types.DexSetting("BancorV2Dex", _path));
     }
 }

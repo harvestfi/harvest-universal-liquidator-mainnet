@@ -7,4 +7,5 @@ import "./UniBasedDex.sol";
 // libraries
 import "../../libraries/Addresses.sol";
 
-contract SushiswapDex is UniBasedDex(Addresses.sushiSwapRouter) {}
+contract SushiswapDex is UniBasedDex(Addresses._SUSHISWAP_ROUTER) {}
+

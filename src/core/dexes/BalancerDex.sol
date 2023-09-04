@@ -61,12 +61,11 @@ contract BalancerDex is Ownable, ILiquidityDex, BalancerDexStorage {
         limits[0] = int256(_sellAmount);
         limits[_path.length - 1] = -int256(_minBuyAmount);
 
-        IERC20(sellToken).safeIncreaseAllowance(Addresses.balancerVault, _sellAmount);
+        IERC20(sellToken).safeIncreaseAllowance(Addresses._BALANCER_VAULT, _sellAmount);
 
         return uint256(
-            -IBVault(Addresses.balancerVault).batchSwap(
-                IBVault.SwapKind.GIVEN_IN, swaps, assets, funds, limits, block.timestamp
-            )[_path.length - 1]
+            -IBVault(Addresses._BALANCER_VAULT).batchSwap(IBVault.SwapKind.GIVEN_IN, swaps, assets, funds, limits, block.timestamp)[_path
+                .length - 1]
         );
     }
 
