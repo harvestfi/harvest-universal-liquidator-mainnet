@@ -49,7 +49,7 @@ abstract contract CrossDexSwapPaths {
         newTokenPair.whale = 0xa371D95184127Bf81d1e7281733eB94041E7eB8e;
         newTokenPair.dexSetup.push(Types.DexSetting("UniV3Dex", _pathA));
         newTokenPair.dexSetup.push(Types.DexSetting("CurveDex", _pathB));
-
+        
         // Pair3 - (UniV3) UNI -> WETH -> FARM (Bancor);
         _pathA[0] = 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984;
         _pathA[1] = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
