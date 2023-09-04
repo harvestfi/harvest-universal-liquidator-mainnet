@@ -12,9 +12,9 @@ contract CurveDexTest is AdvancedFixture {
         // deploy dex
         startHoax(_governance);
         _curveDex = new CurveDex();
-        _curveDex.setPool(_pools[1].sellToken, _pools[1].buyToken, address(bytes20(_pools[1].pools[0])));
+        _curveDex.setPool(_pools[1].sellToken, _pools[1].buyToken, address(bytes20(_pools[1].pool)));
         address pool = _curveDex.pool(_pools[1].sellToken, _pools[1].buyToken);
-        assertEq(pool, address(bytes20(_pools[1].pools[0])));
+        assertEq(pool, address(bytes20(_pools[1].pool)));
         vm.stopPrank();
     }
 
@@ -23,10 +23,10 @@ contract CurveDexTest is AdvancedFixture {
         vm.prank(_governance);
         _curveDex = new CurveDex();
         vm.expectRevert("Ownable: caller is not the owner");
-        _curveDex.setPool(_pools[1].sellToken, _pools[1].buyToken, address(bytes20(_pools[1].pools[0])));
+        _curveDex.setPool(_pools[1].sellToken, _pools[1].buyToken, address(bytes20(_pools[1].pool)));
         vm.prank(_governance);
-        _curveDex.setPool(_pools[1].sellToken, _pools[1].buyToken, address(bytes20(_pools[1].pools[0])));
+        _curveDex.setPool(_pools[1].sellToken, _pools[1].buyToken, address(bytes20(_pools[1].pool)));
         address pool = _curveDex.pool(_pools[1].sellToken, _pools[1].buyToken);
-        assertEq(pool, address(bytes20(_pools[1].pools[0])));
+        assertEq(pool, address(bytes20(_pools[1].pool)));
     }
 }

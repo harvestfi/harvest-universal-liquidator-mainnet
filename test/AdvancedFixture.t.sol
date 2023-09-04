@@ -96,11 +96,11 @@ abstract contract AdvancedFixture is
             if (keccak256(bytes(dexName)) == keccak256(bytes("BalancerDex"))) {
                 (bool success, bytes memory data) = dexAddress.call(
                     abi.encodeWithSignature(
-                        "setPool(address,address,bytes32[])", _pools[i].sellToken, _pools[i].buyToken, _pools[i].pools
+                        "setPool(address,address,bytes32)", _pools[i].sellToken, _pools[i].buyToken, _pools[i].pool
                     )
                 );
                 if (!success) {
-                    console2.log("curve setPool failed: ");
+                    console2.log("Balancer setPool failed: ");
                     console2.logBytes(data);
                 }
             } else if (keccak256(bytes(dexName)) == keccak256(bytes("CurveDex"))) {
@@ -109,7 +109,7 @@ abstract contract AdvancedFixture is
                         "setPool(address,address,address)",
                         _pools[i].sellToken,
                         _pools[i].buyToken,
-                        address(bytes20(_pools[i].pools[0]))
+                        address(bytes20(_pools[i].pool))
                     )
                 );
                 if (!success) {
