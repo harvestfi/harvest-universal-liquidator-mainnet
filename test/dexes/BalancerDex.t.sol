@@ -12,14 +12,9 @@ contract BalancerDexTest is AdvancedFixture {
         // deploy dex
         startHoax(_governance);
         _balancerDex = new BalancerDex();
-        _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pools);
-        bytes32[] memory pools = _balancerDex.pool(_pools[0].sellToken, _pools[0].buyToken);
-        for (uint256 idx; idx < pools.length;) {
-            assertEq(pools[idx], _pools[0].pools[idx]);
-            unchecked {
-                ++idx;
-            }
-        }
+        _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pool);
+        bytes32 pool = _balancerDex.pool(_pools[0].sellToken, _pools[0].buyToken);
+        assertEq(pool, _pools[0].pool);
         vm.stopPrank();
     }
 
@@ -28,15 +23,10 @@ contract BalancerDexTest is AdvancedFixture {
         vm.prank(_governance);
         _balancerDex = new BalancerDex();
         vm.expectRevert("Ownable: caller is not the owner");
-        _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pools);
+        _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pool);
         vm.prank(_governance);
-        _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pools);
-        bytes32[] memory pools = _balancerDex.pool(_pools[0].sellToken, _pools[0].buyToken);
-        for (uint256 idx; idx < pools.length;) {
-            assertEq(pools[idx], _pools[0].pools[idx]);
-            unchecked {
-                ++idx;
-            }
-        }
+        _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pool);
+        bytes32 pool = _balancerDex.pool(_pools[0].sellToken, _pools[0].buyToken);
+        assertEq(pool, _pools[0].pool);
     }
 }

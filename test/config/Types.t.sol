@@ -23,7 +23,7 @@ abstract contract Types {
         address sellToken;
         address buyToken;
         string dexName;
-        bytes32[] pools;
+        bytes32 pool;
     }
 
     struct FeePair {

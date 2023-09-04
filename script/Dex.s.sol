@@ -32,27 +32,27 @@ contract DexScript is Script {
         if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("UniV3Dex"))) {
             UniV3Dex uniV3Dex = new UniV3Dex();
             console.log("UniV3Dex: ", address(uniV3Dex));
-            IUniversalLiquidatorRegistry(_registry).addDex(bytes32(bytes(vm.envString("DEX_NAME"))), address(uniV3Dex));
+            IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(uniV3Dex));
             _newDex = address(uniV3Dex);
         } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("BalancerDex"))) {
             BalancerDex balancerDex = new BalancerDex();
             console.log("BalancerDex: ", address(balancerDex));
-            IUniversalLiquidatorRegistry(_registry).addDex(bytes32(bytes(vm.envString("DEX_NAME"))), address(balancerDex));
+            IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(balancerDex));
             _newDex = address(balancerDex);
         } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("SushiswapDex"))) {
             SushiswapDex sushiswapDex = new SushiswapDex();
             console.log("SushiswapDex: ", address(sushiswapDex));
-            IUniversalLiquidatorRegistry(_registry).addDex(bytes32(bytes(vm.envString("DEX_NAME"))), address(sushiswapDex));
+            IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(sushiswapDex));
             _newDex = address(sushiswapDex);
         } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("CurveDex"))) {
             CurveDex curveDex = new CurveDex();
             console.log("CurveDex: ", address(curveDex));
-            IUniversalLiquidatorRegistry(_registry).addDex(bytes32(bytes(vm.envString("DEX_NAME"))), address(curveDex));
+            IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(curveDex));
             _newDex = address(curveDex);
         } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("BancorV2Dex"))) {
             BancorV2Dex bancorV2Dex = new BancorV2Dex();
             console.log("BancorV2Dex: ", address(bancorV2Dex));
-            IUniversalLiquidatorRegistry(_registry).addDex(bytes32(bytes(vm.envString("DEX_NAME"))), address(bancorV2Dex));
+            IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(bancorV2Dex));
             _newDex = address(bancorV2Dex);
         } else {
             console.log("Dex not found");
