@@ -1,0 +1,60 @@
+{
+  "<template-for-new-network>": {
+    "UniversalLiquidator": "",
+    "UniversalLiquidatorRegistry": "",
+    "UniV3Dex": "",
+    "BalancerDex": "",
+    "SushiswapDex": "",
+    "CurveDex": "",
+    "BancorV2Dex": "",
+    "<new-address-item-to-store>": ""
+  },
+  "local": {
+    "UniversalLiquidator": "0xf12b5dd4ead5f743c6baa640b0216200e89b60da",
+    "UniversalLiquidatorRegistry": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0",
+    "UniV3Dex": {
+      "address": "0xf25186b5081ff5ce73482ad761db0eb0d25abfbf",
+      "id": "uniV3"
+    },
+    "BalancerDex": {
+      "address": "0x9fbda871d559710256a2502a2517b794b482db40",
+      "id": "balancer"
+    },
+    "SushiswapDex": {
+      "address": "0x30753e4a8aad7f8597332e813735def5dd395028",
+      "id": "sushi"
+    },
+    "CurveDex": {
+      "address": "0xaa588d3737b611bafd7bd713445b314bd453a5c8",
+      "id": "curve"
+    },
+    "BancorV2Dex": {
+      "address": "0x75c35c980c0d37ef46df04d31a140b65503c0eed",
+      "id": "bancorV2"
+    }
+  },
+  "eth-sepolia": {
+    "UniversalLiquidator": "0x9ee7f7e4e0b0c9da7f48477713ae779b8c9b84d3",
+    "UniversalLiquidatorRegistry": "0x95d285aa64e376535a7cc19bcd04fea82479a955",
+    "UniV3Dex": {
+      "address": "0x6133fe5288355669ce7b06cc992b56a781f32e5a",
+      "id": "uniV3"
+    },
+    "BalancerDex": {
+      "address": "0xcf84247931a6f655da596d744a525bf7085c7d52",
+      "id": "balancer"
+    },
+    "SushiswapDex": {
+      "address": "0x573becaa1dc700b3f8e0043f7d4ca53f66678a40",
+      "id": "sushi"
+    },
+    "CurveDex": {
+      "address": "0x420cec1d4ef7d9c1e15a17734cebddcec9ef7f92",
+      "id": "curve"
+    },
+    "BancorV2Dex": {
+      "address": "0x63f3c586fb0d316dc891541901c748599139ce5c",
+      "id": "bancorV2"
+    }
+  }
+}

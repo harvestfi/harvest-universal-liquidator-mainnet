@@ -13,7 +13,6 @@ import "../src/core/dexes/SushiswapDex.sol";
 import "../src/core/dexes/CurveDex.sol";
 import "../src/core/dexes/BancorV2Dex.sol";
 
-
 import "./config/Env.t.sol";
 import "./config/Types.t.sol";
 import "./config/Paths.single.t.sol";
@@ -42,7 +41,6 @@ abstract contract AdvancedFixture is
     SushiswapDex internal _sushiswapDex;
     CurveDex internal _curveDex;
     BancorV2Dex internal _bancorV2Dex;
-
 
     string[] internal _dexes;
     mapping(string => Dex) internal _dexesByName;
@@ -84,10 +82,11 @@ abstract contract AdvancedFixture is
         _dexes.push("CurveDex");
         _dexesByName["CurveDex"] = Dex(address(_curveDex), bytes32(bytes("curve")));
         _universalLiquidatorRegistry.addDex(bytes32(bytes("curve")), address(_curveDex));
+
         _bancorV2Dex = new BancorV2Dex();
         _dexes.push("BancorV2Dex");
-        _dexesByName["BancorV2Dex"] = Dex(address(_bancorV2Dex), bytes32(bytes("bancor")));
-        _universalLiquidatorRegistry.addDex(bytes32(bytes("bancor")), address(_bancorV2Dex));
+        _dexesByName["BancorV2Dex"] = Dex(address(_bancorV2Dex), bytes32(bytes("bancorV2")));
+        _universalLiquidatorRegistry.addDex(bytes32(bytes("bancorV2")), address(_bancorV2Dex));
     }
 
     function _setupPools() internal {

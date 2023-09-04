@@ -8,4 +8,3 @@ import "./UniBasedDex.sol";
 import "../../libraries/Addresses.sol";
 
 contract SushiswapDex is UniBasedDex(Addresses._SUSHISWAP_ROUTER) {}
-
