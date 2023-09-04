@@ -1,0 +1,33 @@
+{
+  "name": "harvest-universal-liquidator-mainnet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "private": false,
+  "scripts": {
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harvestfi/harvest-universal-liquidator-mainnet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harvestfi/harvest-universal-liquidator-mainnet/issues"
+  },
+  "homepage": "https://github.com/harvestfi/harvest-universal-liquidator-mainnet#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "husky": "^8.0.3",
+    "pinst": "^3.0.0"
+  }
+}
