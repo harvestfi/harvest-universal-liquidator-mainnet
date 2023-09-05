@@ -8,6 +8,7 @@ library Addresses {
     address constant _SUSHISWAP_ROUTER = 0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F;
     address constant _CURVE_ROUTER = 0x99a58482BD75cbab83b27EC03CA68fF489b5788f;
     address constant _BANCOR_REGISTRY = 0x52Ae12ABe5D8BD778BD5397F99cA900624CfADD4;
+    address constant _PANCAKEV3_ROUTER = 0x1b81D678ffb9C0263b24A97847620C99d213eB14;
     // Tokens
     address constant _WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
     address constant _BANCOR_ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
