@@ -5,7 +5,7 @@ pragma solidity 0.8.17;
 import "../../src/core/dexes/BalancerDex.sol";
 
 // import test base and helpers.
-import {AdvancedFixture} from "../AdvancedFixture.t.sol";
+import {AdvancedFixture} from "../AdvancedFixture.sol";
 
 contract BalancerDexTest is AdvancedFixture {
     function testSetPoolId() public {
