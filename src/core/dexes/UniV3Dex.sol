@@ -20,7 +20,7 @@ import {UniswapV3DexStorage} from "../storage/UniswapV3Dex.sol";
 contract UniV3Dex is Ownable, BasicDex, ILiquidityDex, UniswapV3DexStorage {
     using SafeERC20 for IERC20;
 
-    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] memory _path)
+    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
         external
         override
         returns (uint256)

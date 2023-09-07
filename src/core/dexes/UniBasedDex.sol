@@ -22,7 +22,7 @@ contract UniBasedDex is Ownable, BasicDex, ILiquidityDex, BaseDexStorage {
         _router = _initRouter;
     }
 
-    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] memory _path)
+    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
         external
         override
         returns (uint256)

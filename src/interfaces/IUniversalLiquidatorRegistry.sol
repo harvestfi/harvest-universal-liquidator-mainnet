@@ -7,9 +7,9 @@ import "../libraries/DataTypes.sol";
 interface IUniversalLiquidatorRegistry {
     function getPath(address _sellToken, address _buyToken) external view returns (DataTypes.SwapInfo[] memory);
 
-    function setPath(bytes32 _dex, address[] memory _paths) external;
+    function setPath(bytes32 _dex, address[] calldata _paths) external;
 
-    function setIntermediateToken(address[] memory _token) external;
+    function setIntermediateToken(address[] calldata _token) external;
 
     function addDex(bytes32 _name, address _address) external;
 

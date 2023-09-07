@@ -20,7 +20,7 @@ import {CurveDexStorage} from "../storage/CurveDex.sol";
 contract CurveDex is Ownable, BasicDex, ILiquidityDex, CurveDexStorage {
     using SafeERC20 for IERC20;
 
-    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] memory _path)
+    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
         external
         override
         returns (uint256 receiveAmt)

@@ -2,7 +2,7 @@
 pragma solidity 0.8.17;
 
 interface ILiquidityDex {
-    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] memory _path)
+    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
         external
         returns (uint256);
 }

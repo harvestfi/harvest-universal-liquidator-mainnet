@@ -20,7 +20,7 @@ import {BalancerDexStorage} from "../storage/BalancerDex.sol";
 contract BalancerDex is Ownable, BasicDex, ILiquidityDex, BalancerDexStorage {
     using SafeERC20 for IERC20;
 
-    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] memory _path)
+    function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
         external
         override
         returns (uint256)
