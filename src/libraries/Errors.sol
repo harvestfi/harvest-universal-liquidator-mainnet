@@ -9,4 +9,6 @@ library Errors {
     error PathsNotExist();
     // UniversalLiquidator errors
     error InvalidAddress();
+    // Dex errors
+    error InvalidBalance(address token);
 }
