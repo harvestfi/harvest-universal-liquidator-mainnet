@@ -33,7 +33,7 @@ abstract contract AdvancedFixture is
     Types
 {
     uint256 _forkNetwork;
-    uint256 public _MAINNET_FORK_BLOCK_NUMBER = 17532879;
+    uint256 public _MAINNET_FORK_BLOCK_NUMBER = 18084195;
 
     UniversalLiquidator internal _universalLiquidator;
     UniversalLiquidatorRegistry internal _universalLiquidatorRegistry;
