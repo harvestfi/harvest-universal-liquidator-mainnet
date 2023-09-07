@@ -14,7 +14,13 @@ abstract contract Fees {
         newFee.buyToken = 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599;
         newFee.dexName = "UniV3Dex";
         newFee.fee = 500;
-        // Pool1 - CAKE -> WETH
+        // Pool1 - UNI -> USDC
+        _fees[_feePairsCount++];
+        newFee.sellToken = 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984;
+        newFee.buyToken = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
+        newFee.dexName = "UniV3Dex";
+        newFee.fee = 3000;
+        // Pool2 - CAKE -> WETH
         newFee = _fees[_feePairsCount++];
         newFee.sellToken = 0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898;
         newFee.buyToken = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
