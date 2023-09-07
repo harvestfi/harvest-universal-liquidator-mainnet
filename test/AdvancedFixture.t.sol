@@ -33,6 +33,7 @@ abstract contract AdvancedFixture is
     Types
 {
     uint256 _forkNetwork;
+    uint256 public _MAINNET_FORK_BLOCK_NUMBER = 17532879;
 
     UniversalLiquidator internal _universalLiquidator;
     UniversalLiquidatorRegistry internal _universalLiquidatorRegistry;
@@ -55,7 +56,7 @@ abstract contract AdvancedFixture is
     constructor() {
         startHoax(EnvVariables._governance);
         // fork testing environment
-        _forkNetwork = vm.createFork(_RPC_URL);
+        _forkNetwork = vm.createFork(_RPC_URL, _MAINNET_FORK_BLOCK_NUMBER);
         vm.selectFork(_forkNetwork);
         // deploy UL, ULR, and dexes
         _universalLiquidatorRegistry = new UniversalLiquidatorRegistry();
