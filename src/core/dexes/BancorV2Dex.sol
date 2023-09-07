@@ -5,6 +5,7 @@ pragma solidity 0.8.17;
 import "openzeppelin/access/Ownable.sol";
 import "openzeppelin/token/ERC20/utils/SafeERC20.sol";
 import "openzeppelin/token/ERC20/IERC20.sol";
+import "./BasicDex.sol";
 
 // interfaces
 import "../../interfaces/ILiquidityDex.sol";
@@ -18,7 +19,7 @@ import "../../libraries/Addresses.sol";
 // constants and types
 import {BancorV2DexStorage} from "../storage/BancorV2Dex.sol";
 
-contract BancorV2Dex is Ownable, ILiquidityDex, BancorV2DexStorage {
+contract BancorV2Dex is Ownable, BasicDex, ILiquidityDex, BancorV2DexStorage {
     using SafeERC20 for IERC20;
 
     // BancorDex's doSwap doesn't expect any address in the path to be bancorETH
@@ -80,5 +81,7 @@ contract BancorV2Dex is Ownable, ILiquidityDex, BancorV2DexStorage {
         return _affiliateFee;
     }
 
-    receive() external payable {}
+    function tokenWithdraw(address _token, uint256 _amount) public override onlyOwner {
+        super.tokenWithdraw(_token, _amount);
+    }
 }
