@@ -67,7 +67,7 @@ abstract contract SingleSwapPaths {
         newTokenPair = _singleTokenPairs[_singleTokenPairCount++];
         newTokenPair.sellToken = 0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898;
         newTokenPair.buyToken = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
-        newTokenPair.whale = 0x28C6c06298d514Db089934071355E5743bf21d60;
+        newTokenPair.whale = 0x517F451b0A9E1b87Dc0Ae98A05Ee033C3310F046;
         newTokenPair.dexSetup.push(Types.DexSetting("PancakeV3Dex", _path));
     }
 }
