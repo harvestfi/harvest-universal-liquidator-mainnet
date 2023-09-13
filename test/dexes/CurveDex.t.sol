@@ -5,7 +5,7 @@ pragma solidity 0.8.17;
 import "../../src/core/dexes/CurveDex.sol";
 
 // import test base and helpers.
-import {AdvancedFixture} from "../AdvancedFixture.t.sol";
+import {AdvancedFixture} from "../AdvancedFixture.sol";
 
 contract CurveDexTest is AdvancedFixture {
     function testSetPoolId() public {

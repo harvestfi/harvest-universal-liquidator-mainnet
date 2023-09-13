@@ -5,7 +5,7 @@ pragma solidity 0.8.17;
 import "../../src/core/dexes/UniV3Dex.sol";
 
 // import test base and helpers.
-import {AdvancedFixture} from "../AdvancedFixture.t.sol";
+import {AdvancedFixture} from "../AdvancedFixture.sol";
 
 contract UniV3DexTest is AdvancedFixture {
     function testSetPoolFee() public {
