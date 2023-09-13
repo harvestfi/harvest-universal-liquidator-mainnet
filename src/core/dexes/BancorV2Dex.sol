@@ -25,8 +25,9 @@ contract BancorV2Dex is Ownable, BasicDex, ILiquidityDex, BancorV2DexStorage {
     // BancorDex's doSwap doesn't expect any address in the path to be bancorETH
     // they have to be regular tokens.
     function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
-        public
+        external
         override
+        afterSwapCheck(_path[0], _path[_path.length - 1])
         returns (uint256)
     {
         address sellToken = _path[0];
