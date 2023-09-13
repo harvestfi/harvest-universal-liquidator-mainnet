@@ -9,7 +9,7 @@ import "../src/core/dexes/UniV3Dex.sol";
 import "../src/libraries/Errors.sol";
 
 // import test base and helpers.
-import {AdvancedFixture} from "./AdvancedFixture.t.sol";
+import {AdvancedFixture} from "./AdvancedFixture.sol";
 
 contract UniversalLiquidatorRegistryTest is AdvancedFixture {
     function testSetPath() public {
