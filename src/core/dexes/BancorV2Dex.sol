@@ -28,31 +28,35 @@ contract BancorV2Dex is Ownable, BasicDex, ILiquidityDex, BancorV2DexStorage {
         external
         override
         afterSwapCheck(_path[0], _path[_path.length - 1])
-        returns (uint256)
+        returns (uint256 outTokenReturned)
     {
+        uint256 sellAmount = _sellAmount;
+        uint256 minBuyAmount = _minBuyAmount;
+        address receiver = _receiver;
+
         address sellToken = _path[0];
         address buyToken = _path[_path.length - 1];
         address finalReceiver = _receiver;
         address network = getBancorNetworkContract();
 
         if (sellToken == Addresses._WETH) {
-            WETH9(Addresses._WETH).withdraw(_sellAmount);
+            WETH9(Addresses._WETH).withdraw(sellAmount);
             sellToken = Addresses._BANCOR_ETH;
         } else {
-            IERC20(sellToken).safeIncreaseAllowance(network, _sellAmount);
+            IERC20(sellToken).safeIncreaseAllowance(network, sellAmount);
         }
 
         if (buyToken == Addresses._WETH) {
             // we will be receiving eth here, and wrap it back to WETH
             buyToken = Addresses._BANCOR_ETH;
-            _receiver = address(this);
+            receiver = address(this);
         }
 
         address[] memory actualPath = IBancorNetwork(network).conversionPath(sellToken, buyToken);
 
-        uint256 outTokenReturned = IBancorNetwork(network).convertByPath{
-            value: sellToken == Addresses._BANCOR_ETH ? _sellAmount : 0
-        }(actualPath, _sellAmount, _minBuyAmount, payable(_receiver), _affiliateAccount, _affiliateFee);
+        outTokenReturned = IBancorNetwork(network).convertByPath{value: sellToken == Addresses._BANCOR_ETH ? sellAmount : 0}(
+            actualPath, sellAmount, minBuyAmount, payable(receiver), _affiliateAccount, _affiliateFee
+        );
 
         // If buyToken is bancorEth, then this contract has received ETH after the swap.
         // ETH should be wrapped back to WETH
@@ -62,7 +66,7 @@ contract BancorV2Dex is Ownable, BasicDex, ILiquidityDex, BancorV2DexStorage {
             IERC20(Addresses._WETH).safeTransfer(finalReceiver, outTokenReturned);
         }
 
-        return outTokenReturned;
+        //return outTokenReturned;
     }
 
     function configure(address _newAffiliateAccount, uint256 _newAffiliateFee) external onlyOwner {
