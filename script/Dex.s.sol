@@ -80,8 +80,10 @@ contract DexScript is Script {
 
         string memory key = string.concat(string.concat(".", vm.envString("NETWORK")), string.concat(".", vm.envString("DEX")));
         string memory dexId = vm.envString("DEX_NAME");
+        bytes32 dexHex = keccak256(bytes(vm.envString("DEX_NAME")));
         string memory dexAddr = uint256(uint160(_newDex)).toHexString(20);
         key.serialize("id", dexId);
+        key.serialize("hex", dexHex);
         string memory value = key.serialize("address", dexAddr);
         value.write(path, key);
     }

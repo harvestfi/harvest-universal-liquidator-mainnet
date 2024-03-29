@@ -103,7 +103,8 @@ forge script $1 $ARGS
 
 if [ "$1" = "script/Dex.s.sol" ]; 
 then
-  unset "DEX DEX_NAME"
+  unset "DEX"
+  unset "DEX_NAME"
 fi
 
 if [ "$1" = "script/Path.s.sol" ] || [ "$1" = "script/Pool.s.sol" ] || [ "$1" = "script/Fee.s.sol" ];
