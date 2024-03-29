@@ -4,7 +4,7 @@ optimizer = false
 fs_permissions = [{ access = "read-write", path = "./"}]
 
 [profile.optimized]
-optimizer = false
+optimizer = true
 optimizer_runs = 10000
 fs_permissions = [{ access = "read-write", path = "./"}]
 

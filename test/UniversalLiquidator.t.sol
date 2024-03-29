@@ -8,7 +8,7 @@ import "openzeppelin/token/ERC20/IERC20.sol";
 import "../src/libraries/Errors.sol";
 
 // import test base and helpers.
-import {AdvancedFixture} from "./AdvancedFixture.t.sol";
+import {console2, AdvancedFixture} from "./AdvancedFixture.sol";
 
 contract UniversalLiquidatorTest is AdvancedFixture {
     address _farmer;

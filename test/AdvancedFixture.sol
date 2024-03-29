@@ -12,6 +12,7 @@ import "../src/core/dexes/BalancerDex.sol";
 import "../src/core/dexes/SushiswapDex.sol";
 import "../src/core/dexes/CurveDex.sol";
 import "../src/core/dexes/BancorV2Dex.sol";
+import "../src/core/dexes/PancakeV3Dex.sol";
 
 import "./config/Env.t.sol";
 import "./config/Types.t.sol";
@@ -32,6 +33,7 @@ abstract contract AdvancedFixture is
     Types
 {
     uint256 _forkNetwork;
+    uint256 public _MAINNET_FORK_BLOCK_NUMBER = 18084195;
 
     UniversalLiquidator internal _universalLiquidator;
     UniversalLiquidatorRegistry internal _universalLiquidatorRegistry;
@@ -41,6 +43,7 @@ abstract contract AdvancedFixture is
     SushiswapDex internal _sushiswapDex;
     CurveDex internal _curveDex;
     BancorV2Dex internal _bancorV2Dex;
+    PancakeV3Dex internal _pancakeV3Dex;
 
     string[] internal _dexes;
     mapping(string => Dex) internal _dexesByName;
@@ -53,7 +56,7 @@ abstract contract AdvancedFixture is
     constructor() {
         startHoax(EnvVariables._governance);
         // fork testing environment
-        _forkNetwork = vm.createFork(_RPC_URL);
+        _forkNetwork = vm.createFork(_RPC_URL, _MAINNET_FORK_BLOCK_NUMBER);
         vm.selectFork(_forkNetwork);
         // deploy UL, ULR, and dexes
         _universalLiquidatorRegistry = new UniversalLiquidatorRegistry();
@@ -87,6 +90,11 @@ abstract contract AdvancedFixture is
         _dexes.push("BancorV2Dex");
         _dexesByName["BancorV2Dex"] = Dex(address(_bancorV2Dex), bytes32(bytes("bancorV2")));
         _universalLiquidatorRegistry.addDex(bytes32(bytes("bancorV2")), address(_bancorV2Dex));
+
+        _pancakeV3Dex = new PancakeV3Dex();
+        _dexes.push("PancakeV3Dex");
+        _dexesByName["PancakeV3Dex"] = Dex(address(_pancakeV3Dex), bytes32(bytes("pancakeV3")));
+        _universalLiquidatorRegistry.addDex(bytes32(bytes("pancakeV3")), address(_pancakeV3Dex));
     }
 
     function _setupPools() internal {
@@ -127,12 +135,15 @@ abstract contract AdvancedFixture is
         for (uint256 i; i < _feePairsCount;) {
             string memory dexName = _fees[i].dexName;
             address dexAddress = _dexesByName[_fees[i].dexName].addr;
-            if (keccak256(bytes(dexName)) == keccak256(bytes("UniV3Dex"))) {
+            if (
+                keccak256(bytes(dexName)) == keccak256(bytes("UniV3Dex"))
+                    || keccak256(bytes(dexName)) == keccak256(bytes("PancakeV3Dex"))
+            ) {
                 (bool success, bytes memory data) = dexAddress.call(
                     abi.encodeWithSignature("setFee(address,address,uint24)", _fees[i].sellToken, _fees[i].buyToken, _fees[i].fee)
                 );
                 if (!success) {
-                    console2.log("curve setPool failed: ");
+                    console2.log("setFee failed: ");
                     console2.logBytes(data);
                 }
             }

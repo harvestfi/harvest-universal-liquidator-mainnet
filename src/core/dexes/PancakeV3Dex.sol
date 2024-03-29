@@ -15,9 +15,9 @@ import "../../interfaces/uniswap/ISwapRouter.sol";
 import "../../libraries/Addresses.sol";
 
 // constants and types
-import {UniswapV3DexStorage} from "../storage/UniswapV3Dex.sol";
+import {PancakeV3DexStorage} from "../storage/PancakeV3Dex.sol";
 
-contract UniV3Dex is Ownable, BasicDex, ILiquidityDex, UniswapV3DexStorage {
+contract PancakeV3Dex is Ownable, BasicDex, ILiquidityDex, PancakeV3DexStorage {
     using SafeERC20 for IERC20;
 
     function doSwap(uint256 _sellAmount, uint256 _minBuyAmount, address _receiver, address[] calldata _path)
@@ -28,7 +28,7 @@ contract UniV3Dex is Ownable, BasicDex, ILiquidityDex, UniswapV3DexStorage {
     {
         address sellToken = _path[0];
 
-        IERC20(sellToken).safeIncreaseAllowance(Addresses._UNISWAPV3_ROUTER, _sellAmount);
+        IERC20(sellToken).safeIncreaseAllowance(Addresses._PANCAKEV3_ROUTER, _sellAmount);
 
         bytes memory encodedPath = abi.encodePacked(sellToken);
         for (uint256 idx = 1; idx < _path.length;) {
@@ -46,7 +46,7 @@ contract UniV3Dex is Ownable, BasicDex, ILiquidityDex, UniswapV3DexStorage {
             amountOutMinimum: _minBuyAmount
         });
 
-        return ISwapRouter(Addresses._UNISWAPV3_ROUTER).exactInput(param);
+        return ISwapRouter(Addresses._PANCAKEV3_ROUTER).exactInput(param);
     }
 
     function pairFee(address _sellToken, address _buyToken) public view returns (uint24 fee) {

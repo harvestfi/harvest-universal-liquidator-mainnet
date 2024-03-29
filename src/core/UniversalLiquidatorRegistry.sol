@@ -28,7 +28,9 @@ contract UniversalLiquidatorRegistry is Ownable, IUniversalLiquidatorRegistry, U
                     && paths[_intermediateTokens[idx]][_buyToken].dex != bytes32(0)
             ) {
                 // found the intermediateToken and intermediateDex
-                DataTypes.SwapInfo[] memory retPaths = new DataTypes.SwapInfo[](2);
+                DataTypes.SwapInfo[] memory retPaths = new DataTypes.SwapInfo[](
+                    2
+                );
                 retPaths[0] = DataTypes.SwapInfo(
                     dexesInfo[paths[_sellToken][_intermediateTokens[idx]].dex], paths[_sellToken][_intermediateTokens[idx]].paths
                 );
@@ -44,7 +46,7 @@ contract UniversalLiquidatorRegistry is Ownable, IUniversalLiquidatorRegistry, U
         revert Errors.PathsNotExist();
     }
 
-    function setPath(bytes32 _dex, address[] memory _paths) external override onlyOwner {
+    function setPath(bytes32 _dex, address[] calldata _paths) external override onlyOwner {
         // dex should exist
         if (!_dexExists(_dex)) revert Errors.DexDoesNotExist();
         // path could also be an empty array
@@ -54,7 +56,7 @@ contract UniversalLiquidatorRegistry is Ownable, IUniversalLiquidatorRegistry, U
         paths[_paths[0]][_paths[_paths.length - 1]] = DataTypes.PathInfo(_dex, _paths);
     }
 
-    function setIntermediateToken(address[] memory _token) public override onlyOwner {
+    function setIntermediateToken(address[] calldata _token) public override onlyOwner {
         _intermediateTokens = _token;
     }
 
