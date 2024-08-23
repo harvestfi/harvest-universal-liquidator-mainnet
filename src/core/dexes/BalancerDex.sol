@@ -28,21 +28,18 @@ contract BalancerDex is Ownable, BasicDex, ILiquidityDex, BalancerDexStorage {
     {
         address sellToken = _path[0];
 
-        IBVault.BatchSwapStep[] memory swaps = new IBVault.BatchSwapStep[](_path.length - 1);
+        IBVault.BatchSwapStep[] memory swaps = new IBVault.BatchSwapStep[](
+            _path.length - 1
+        );
 
         swaps[0].amount = _sellAmount;
-        for (uint256 idx; idx < _path.length - 1;) {
-            swaps[idx].poolId = _poolIds[_path[idx]][_path[idx + 1]];
-            swaps[idx].assetInIndex = idx;
-            swaps[idx].assetOutIndex = idx + 1;
-
-            unchecked {
-                ++idx;
-            }
-        }
-
         IAsset[] memory assets = new IAsset[](_path.length);
         for (uint256 idx; idx < _path.length;) {
+            if (idx < _path.length - 1) {
+                swaps[idx].poolId = _poolIds[_path[idx]][_path[idx + 1]];
+                swaps[idx].assetInIndex = idx;
+                swaps[idx].assetOutIndex = idx + 1;
+            }
             assets[idx] = IAsset(_path[idx]);
 
             unchecked {
