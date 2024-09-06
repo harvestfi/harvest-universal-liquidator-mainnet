@@ -47,7 +47,9 @@ contract DexScript is Script {
         } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("CurveDex"))) {
             CurveDex curveDex = new CurveDex();
             console.log("CurveDex: ", address(curveDex));
-            IUniversalLiquidatorRegistry(_registry).changeDexAddress(keccak256(bytes(vm.envString("DEX_NAME"))), address(curveDex));
+            IUniversalLiquidatorRegistry(_registry).changeDexAddress(
+                keccak256(bytes(vm.envString("DEX_NAME"))), address(curveDex)
+            );
             _newDex = address(curveDex);
         } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("BancorV2Dex"))) {
             BancorV2Dex bancorV2Dex = new BancorV2Dex();

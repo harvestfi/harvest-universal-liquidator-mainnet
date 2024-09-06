@@ -61,7 +61,11 @@
       "hex": "0xcb2d20206d906069351c89a2cb7cdbd96c71998717cd5a82e724d955b654f67a",
       "id": "sushi"
     },
-    "CurveDex": "",
+    "CurveDex": {
+      "address": "0xdabcc7b3ba13af3ac02c4fbe4e964ac56ac76c19",
+      "hex": "0x5af0ee7dec5167f618066986345e64763b2d91718dfb37f9969a1b0670a83e71",
+      "id": "curve"
+    },
     "BancorV2Dex": {
       "address": "0xab8db3bbe95cb7e9f18a6c5bb9432553eb59ec83",
       "hex": "0x0cb801819ac3b1879053d217c1fed9c4a42d72fcb73f2d8702b474d094eb8bae",
