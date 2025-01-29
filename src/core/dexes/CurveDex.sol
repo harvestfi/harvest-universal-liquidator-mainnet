@@ -45,7 +45,7 @@ contract CurveDex is Ownable, BasicDex, ILiquidityDex, CurveDexStorage {
                 ++idx;
             }
         }
-        ICurveRouter(Addresses._CURVE_ROUTER).exchange(curvePath, swapParams, _sellAmount, _minBuyAmount, pools, _receiver);
+        return ICurveRouter(Addresses._CURVE_ROUTER).exchange(curvePath, swapParams, _sellAmount, _minBuyAmount, pools, _receiver);
     }
 
     function pairSetup(address _token0, address _token1, address _poolAddr, uint256[5] calldata __params) external onlyOwner {

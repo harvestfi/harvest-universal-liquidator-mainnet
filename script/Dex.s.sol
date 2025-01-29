@@ -12,6 +12,8 @@ import "../src/core/dexes/BalancerDex.sol";
 import "../src/core/dexes/SushiswapDex.sol";
 import "../src/core/dexes/CurveDex.sol";
 import "../src/core/dexes/BancorV2Dex.sol";
+import "../src/core/dexes/ERC4626Dex.sol";
+import "../src/core/dexes/AaveDex.sol";
 
 contract DexScript is Script {
     using stdJson for string;
@@ -56,6 +58,16 @@ contract DexScript is Script {
             console.log("BancorV2Dex: ", address(bancorV2Dex));
             IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(bancorV2Dex));
             _newDex = address(bancorV2Dex);
+        } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("ERC4626Dex"))) {
+            ERC4626Dex dex = new ERC4626Dex();
+            console.log("ERC4626Dex: ", address(dex));
+            IUniversalLiquidatorRegistry(_registry).changeDexAddress(keccak256(bytes(vm.envString("DEX_NAME"))), address(dex));
+            _newDex = address(dex);
+        } else if (keccak256(bytes(vm.envString("DEX"))) == keccak256(bytes("AaveDex"))) {
+            AaveDex dex = new AaveDex();
+            console.log("AaveDex: ", address(dex));
+            IUniversalLiquidatorRegistry(_registry).addDex(keccak256(bytes(vm.envString("DEX_NAME"))), address(dex));
+            _newDex = address(dex);
         } else {
             console.log("Dex not found");
         }

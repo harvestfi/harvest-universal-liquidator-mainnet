@@ -71,6 +71,16 @@
       "hex": "0x0cb801819ac3b1879053d217c1fed9c4a42d72fcb73f2d8702b474d094eb8bae",
       "id": "bancorV2"
     },
+    "ERC4626Dex": {
+      "address": "0x8b5c89fb0ffde1cd476546a75740cfb74edef6f2",
+      "hex": "0x45f39c8c7e3105201fd8b1288ac068347728af9cfd16f3f08e97171ef955c9ab",
+      "id": "erc4626"
+    },
+    "AaveDex": {
+      "address": "0x3338cf2442a5ee0ad799d09fda54ee080af9c4ab",
+      "hex": "0xe0a39fef8aa5887c76606e7a14a5db8dc6676191e4866b2a609a3aa003b18329",
+      "id": "aave"
+    },
     "<new-address-item-to-store>": ""
   }
 }
