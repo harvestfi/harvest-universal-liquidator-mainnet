@@ -22,7 +22,16 @@ import "./config/Paths.cross.t.sol";
 import "./config/Pools.t.sol";
 import "./config/Fees.t.sol";
 
-abstract contract AdvancedFixture is Test, SingleSwapPaths, MultiSwapPaths, CrossDexSwapPaths, Pools, Fees, EnvVariables, Types {
+abstract contract AdvancedFixture is
+    Test,
+    SingleSwapPaths,
+    MultiSwapPaths,
+    CrossDexSwapPaths,
+    Pools,
+    Fees,
+    EnvVariables,
+    Types
+{
     uint256 _forkNetwork;
     uint256 public _MAINNET_FORK_BLOCK_NUMBER = 18084195;
 
