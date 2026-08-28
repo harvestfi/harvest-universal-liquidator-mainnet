@@ -4,7 +4,7 @@
     "registry": "0x9A9C4FA5083C19A8007f28B1faE861562959243F",
     "universalLiquidator": "0xf410024a8521d04a77ad8eA6d2dFE37C99e38760",
     "owner": "0x6a74649aCFD7822ae8Fb78463a9f2192752E5Aa2",
-    "generatedAtBlock": 25854071,
+    "generatedAtBlock": 25854827,
     "intermediateTokens": [
         "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -244,22 +244,22 @@
         },
         {
             "sellToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
-            "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "CRV > WETH",
-            "dex": "uniV3",
-            "path": [
-                "0xd533a949740bb3306d119cc777fa900ba034cd52",
-                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-            ]
-        },
-        {
-            "sellToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
             "buyToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
             "symbols": "CRV > CVX",
             "dex": "uniV3",
             "path": [
                 "0xd533a949740bb3306d119cc777fa900ba034cd52",
                 "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b"
+            ]
+        },
+        {
+            "sellToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+            "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbols": "CRV > WETH",
+            "dex": "uniV3",
+            "path": [
+                "0xd533a949740bb3306d119cc777fa900ba034cd52",
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
         {
@@ -285,22 +285,22 @@
         },
         {
             "sellToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
-            "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "CVX > WETH",
-            "dex": "sushi",
-            "path": [
-                "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
-                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-            ]
-        },
-        {
-            "sellToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
             "buyToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
             "symbols": "CVX > CRV",
             "dex": "uniV3",
             "path": [
                 "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
                 "0xd533a949740bb3306d119cc777fa900ba034cd52"
+            ]
+        },
+        {
+            "sellToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+            "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbols": "CVX > WETH",
+            "dex": "sushi",
+            "path": [
+                "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
         {
