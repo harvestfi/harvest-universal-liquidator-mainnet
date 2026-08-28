@@ -1,9 +1,10 @@
 {
-    "network": "base",
+    "network": "ethereum",
+    "chainId": 1,
     "registry": "0x9A9C4FA5083C19A8007f28B1faE861562959243F",
     "universalLiquidator": "0xf410024a8521d04a77ad8eA6d2dFE37C99e38760",
     "owner": "0x6a74649aCFD7822ae8Fb78463a9f2192752E5Aa2",
-    "generatedAtBlock": 25853926,
+    "generatedAtBlock": 25854071,
     "intermediateTokens": [
         "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
