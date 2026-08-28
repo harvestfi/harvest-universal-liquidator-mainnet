@@ -22,16 +22,7 @@ import "./config/Paths.cross.t.sol";
 import "./config/Pools.t.sol";
 import "./config/Fees.t.sol";
 
-abstract contract AdvancedFixture is
-    Test,
-    SingleSwapPaths,
-    MultiSwapPaths,
-    CrossDexSwapPaths,
-    Pools,
-    Fees,
-    EnvVariables,
-    Types
-{
+abstract contract AdvancedFixture is Test, SingleSwapPaths, MultiSwapPaths, CrossDexSwapPaths, Pools, Fees, EnvVariables, Types {
     uint256 _forkNetwork;
     uint256 public _MAINNET_FORK_BLOCK_NUMBER = 18084195;
 
@@ -53,7 +44,9 @@ abstract contract AdvancedFixture is
         0xdAC17F958D2ee523a2206206994597C13D831ec7 // USDT
     ];
 
-    constructor() {
+    // Cheatcode state set in a test contract's constructor is not honoured by
+    // current forge, so the fork and deploys must happen in setUp().
+    function setUp() public virtual {
         startHoax(EnvVariables._governance);
         // fork testing environment
         _forkNetwork = vm.createFork(_RPC_URL, _MAINNET_FORK_BLOCK_NUMBER);

@@ -56,8 +56,8 @@ contract BalancerDex is Ownable, BasicDex, ILiquidityDex, BalancerDexStorage {
         IERC20(sellToken).safeIncreaseAllowance(Addresses._BALANCER_VAULT, _sellAmount);
 
         return uint256(
-            -IBVault(Addresses._BALANCER_VAULT).batchSwap(IBVault.SwapKind.GIVEN_IN, swaps, assets, funds, limits, block.timestamp)[_path
-                .length - 1]
+            -IBVault(Addresses._BALANCER_VAULT)
+                .batchSwap(IBVault.SwapKind.GIVEN_IN, swaps, assets, funds, limits, block.timestamp)[_path.length - 1]
         );
     }
 

@@ -22,8 +22,9 @@ contract BancorV2DexTest is AdvancedFixture {
 
     function testCannotSetPoolFeeFromNonOwner() public {
         // deploy dex
-        vm.prank(_governance);
+        vm.startPrank(_governance);
         _bancorV2Dex = new BancorV2Dex();
+        vm.stopPrank();
         vm.expectRevert("Ownable: caller is not the owner");
         _bancorV2Dex.configure(_governance, 3000);
         vm.prank(_governance);

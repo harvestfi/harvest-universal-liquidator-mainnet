@@ -10,7 +10,8 @@ import {console2, AdvancedFixture} from "../AdvancedFixture.sol";
 contract MockDexTest is AdvancedFixture {
     MockDex public mockDex;
 
-    function setUp() public {
+    function setUp() public override {
+        super.setUp();
         vm.startPrank(_governance);
         mockDex = new MockDex();
     }
