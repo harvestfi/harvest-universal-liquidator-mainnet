@@ -20,8 +20,9 @@ contract BalancerDexTest is AdvancedFixture {
 
     function testCannotSetPoolIdFromNonOwner() public {
         // deploy dex
-        vm.prank(_governance);
+        vm.startPrank(_governance);
         _balancerDex = new BalancerDex();
+        vm.stopPrank();
         vm.expectRevert("Ownable: caller is not the owner");
         _balancerDex.setPool(_pools[0].sellToken, _pools[0].buyToken, _pools[0].pool);
         vm.prank(_governance);
