@@ -149,10 +149,11 @@
         {
             "sellToken": "0x4d224452801aced8b2f0aebe155379bb5d594381",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "APE > WETH",
-            "dex": "uniV3",
+            "symbols": "APE > USDT > WETH",
+            "dex": "sushi",
             "path": [
                 "0x4d224452801aced8b2f0aebe155379bb5d594381",
+                "0xdac17f958d2ee523a2206206994597c13d831ec7",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
@@ -191,7 +192,7 @@
             "sellToken": "0xc00e94cb662c3520282e6f5717214004a7f26888",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "symbols": "COMP > WETH",
-            "dex": "uniV3",
+            "dex": "sushi",
             "path": [
                 "0xc00e94cb662c3520282e6f5717214004a7f26888",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
@@ -213,7 +214,7 @@
             "sellToken": "0xc00e94cb662c3520282e6f5717214004a7f26888",
             "buyToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
             "symbols": "COMP > WETH > USDC",
-            "dex": "uniV3",
+            "dex": "sushi",
             "path": [
                 "0xc00e94cb662c3520282e6f5717214004a7f26888",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
@@ -254,11 +255,10 @@
         {
             "sellToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
             "buyToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
-            "symbols": "CRV > WETH > CVX",
-            "dex": "sushi",
+            "symbols": "CRV > CVX",
+            "dex": "uniV3",
             "path": [
                 "0xd533a949740bb3306d119cc777fa900ba034cd52",
-                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b"
             ]
         },
@@ -296,11 +296,10 @@
         {
             "sellToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
             "buyToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
-            "symbols": "CVX > WETH > CRV",
-            "dex": "sushi",
+            "symbols": "CVX > CRV",
+            "dex": "uniV3",
             "path": [
                 "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
-                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0xd533a949740bb3306d119cc777fa900ba034cd52"
             ]
         },
@@ -622,7 +621,7 @@
             "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "buyToken": "0xdbdb4d16eda451d0503b854cf79d55697f90c8df",
             "symbols": "WETH > ALCX",
-            "dex": "balancer",
+            "dex": "sushi",
             "path": [
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0xdbdb4d16eda451d0503b854cf79d55697f90c8df"
@@ -653,7 +652,7 @@
             "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "buyToken": "0xc00e94cb662c3520282e6f5717214004a7f26888",
             "symbols": "WETH > COMP",
-            "dex": "uniV3",
+            "dex": "sushi",
             "path": [
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0xc00e94cb662c3520282e6f5717214004a7f26888"
@@ -872,21 +871,22 @@
         {
             "sellToken": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
             "buyToken": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
-            "symbols": "WLFI > USDC > USD1",
+            "symbols": "WLFI > USDT > USD1",
             "dex": "uniV3",
             "path": [
                 "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
-                "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "0xdac17f958d2ee523a2206206994597c13d831ec7",
                 "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d"
             ]
         },
         {
             "sellToken": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "WLFI > WETH",
+            "symbols": "WLFI > USDT > WETH",
             "dex": "uniV3",
             "path": [
                 "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
+                "0xdac17f958d2ee523a2206206994597c13d831ec7",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
