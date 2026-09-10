@@ -104,19 +104,6 @@ abstract contract AdvancedFixture is Test, SingleSwapPaths, MultiSwapPaths, Cros
                     console2.log("Balancer setPool failed: ");
                     console2.logBytes(data);
                 }
-            } else if (keccak256(bytes(dexName)) == keccak256(bytes("CurveDex"))) {
-                (bool success, bytes memory data) = dexAddress.call(
-                    abi.encodeWithSignature(
-                        "setPool(address,address,address)",
-                        _pools[i].sellToken,
-                        _pools[i].buyToken,
-                        address(bytes20(_pools[i].pool))
-                    )
-                );
-                if (!success) {
-                    console2.log("curve setPool failed: ");
-                    console2.logBytes(data);
-                }
             }
             unchecked {
                 ++i;

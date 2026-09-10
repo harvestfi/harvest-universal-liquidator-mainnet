@@ -40,15 +40,8 @@ abstract contract SingleSwapPaths {
         newTokenPair.whale = 0x8EB8a3b98659Cce290402893d0123abb75E3ab28;
         newTokenPair.dexSetup.push(Types.DexSetting("SushiswapDex", _path));
 
-        // Pair3 - USDC -> DAI
-        _path[0] = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-        _path[1] = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-
-        newTokenPair = _singleTokenPairs[_singleTokenPairCount++];
-        newTokenPair.sellToken = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-        newTokenPair.buyToken = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-        newTokenPair.whale = 0x171cda359aa49E46Dec45F375ad6c256fdFBD420;
-        newTokenPair.dexSetup.push(Types.DexSetting("CurveDex", _path));
+        // Pair3 was USDC -> DAI on CurveDex. Dropped: the curve router has no
+        // code at this suite's fork block, see the note in Pools.t.sol.
 
         // Pair4 - FARM -> BNT
         _path[0] = 0xa0246c9032bC3A600820415aE600c6388619A14D;

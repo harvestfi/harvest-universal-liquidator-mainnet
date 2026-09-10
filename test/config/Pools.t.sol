@@ -37,40 +37,12 @@ abstract contract Pools {
         newPool.dexName = "BalancerDex";
         newPool.pool = _curPool;
 
-        // Pool3 - USDC -> DAI
-        _curPool = bytes20(0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7);
-
-        newPool = _pools[_poolPairsCount++];
-        newPool.sellToken = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-        newPool.buyToken = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-        newPool.dexName = "CurveDex";
-        newPool.pool = _curPool;
-
-        // Pool4 - DAI -> USDT
-        _curPool = bytes20(0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7);
-
-        newPool = _pools[_poolPairsCount++];
-        newPool.sellToken = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-        newPool.buyToken = 0xdAC17F958D2ee523a2206206994597C13D831ec7;
-        newPool.dexName = "CurveDex";
-        newPool.pool = _curPool;
-
-        // Pool5 - USDT -> FRAX
-        _curPool = bytes20(0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B);
-
-        newPool = _pools[_poolPairsCount++];
-        newPool.sellToken = 0xdAC17F958D2ee523a2206206994597C13D831ec7;
-        newPool.buyToken = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
-        newPool.dexName = "CurveDex";
-        newPool.pool = _curPool;
-
-        // Pool6 - USDC -> USDT
-        _curPool = bytes20(0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7);
-
-        newPool = _pools[_poolPairsCount++];
-        newPool.sellToken = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-        newPool.buyToken = 0xdAC17F958D2ee523a2206206994597C13D831ec7;
-        newPool.dexName = "CurveDex";
-        newPool.pool = _curPool;
+        // No curve pools: CurveDex swaps through _CURVE_ROUTER
+        // (0x16C6521Dff6baB339122a0FE25a9116693265353), which has no code at
+        // the block this suite forks from, 18084195 -- the router was deployed
+        // at block 20189560, on 2024-06-28. Every curve swap therefore reverts
+        // here, so the pairs that used it are gone from the swap paths too.
+        // Restoring any of this needs a newer fork block, and note that this
+        // dex takes pairSetup(address,address,address,uint256[5]), not setPool.
     }
 }
