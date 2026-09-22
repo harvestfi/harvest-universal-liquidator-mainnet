@@ -65,7 +65,8 @@
         "0xdc035d45d973e3ec169d2276ddab16f1e407384f": "USDS",
         "0xe1b4d34e8754600962cd944b535180bd758e6c2e": "agETH",
         "0xf4d2888d29d722226fafa5d9b24f9164c092421e": "LOOKS",
-        "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e": "crvUSD"
+        "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e": "crvUSD",
+        "0x00000000efe302beaa2b3e6e1b18d08d69a9012a": "AUSD"
     },
     "minLiquidity": {
         "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "1",
@@ -136,6 +137,17 @@
         }
     ],
     "paths": [
+        {
+            "sellToken": "0x00000000efe302beaa2b3e6e1b18d08d69a9012a",
+            "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "dex": "uniV3",
+            "path": [
+                "0x00000000efe302beaa2b3e6e1b18d08d69a9012a",
+                "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+            ],
+            "symbols": "AUSD > USDC > WETH"
+        },
         {
             "sellToken": "0x32a6268f9ba3642dda7892add74f1d34469a4259",
             "buyToken": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
@@ -629,17 +641,6 @@
         },
         {
             "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "buyToken": "0x4d224452801aced8b2f0aebe155379bb5d594381",
-            "symbols": "WETH > USDT > APE",
-            "dex": "sushi",
-            "path": [
-                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                "0x4d224452801aced8b2f0aebe155379bb5d594381"
-            ]
-        },
-        {
-            "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "buyToken": "0xa0246c9032bc3a600820415ae600c6388619a14d",
             "symbols": "WETH > BNT > FARM",
             "dex": "bancorV2",
@@ -837,6 +838,17 @@
             "path": [
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0xdac17f958d2ee523a2206206994597c13d831ec7"
+            ]
+        },
+        {
+            "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "buyToken": "0x4d224452801aced8b2f0aebe155379bb5d594381",
+            "symbols": "WETH > USDT > APE",
+            "dex": "sushi",
+            "path": [
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                "0x4d224452801aced8b2f0aebe155379bb5d594381"
             ]
         },
         {

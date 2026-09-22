@@ -3,56 +3,92 @@
     "sellToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     "buyToken": "0xba100000625a3754423978a60c9317c58a424e3D",
     "dexName": "BalancerDex",
+    "path": [
+      "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "0xba100000625a3754423978a60c9317c58a424e3D"
+    ],
     "pools": [
       "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56000200000000000000000014"
     ],
+    "params": [],
     "description": "WETH -> BAL"
   },
   {
     "sellToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     "buyToken": "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF",
     "dexName": "BalancerDex",
+    "path": [
+      "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF"
+    ],
     "pools": [
       "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9000200000000000000000274"
     ],
+    "params": [],
     "description": "WETH -> AURA"
   },
   {
     "sellToken": "0xba100000625a3754423978a60c9317c58a424e3D",
     "buyToken": "0xae78736Cd615f374D3085123A210448E74Fc6393",
     "dexName": "BalancerDex",
+    "path": [
+      "0xba100000625a3754423978a60c9317c58a424e3D",
+      "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "0xae78736Cd615f374D3085123A210448E74Fc6393"
+    ],
     "pools": [
       "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56000200000000000000000014",
       "0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112"
     ],
-    "description": "BAL -> rETH"
+    "params": [],
+    "description": "BAL -> WETH -> rETH"
   },
   {
     "sellToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
     "buyToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
     "dexName": "CurveDex",
+    "path": [
+      "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+    ],
     "pools": ["0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7"],
+    "params": [[1, 0, 1, 1, 3]],
     "description": "USDC -> DAI"
   },
   {
     "sellToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
     "buyToken": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
     "dexName": "CurveDex",
+    "path": [
+      "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+    ],
     "pools": ["0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7"],
+    "params": [[0, 2, 1, 1, 3]],
     "description": "DAI -> USDT"
   },
   {
     "sellToken": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
     "buyToken": "0x853d955aCEf822Db058eb8505911ED77F175b99e",
     "dexName": "CurveDex",
+    "path": [
+      "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "0x853d955aCEf822Db058eb8505911ED77F175b99e"
+    ],
     "pools": ["0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B"],
+    "params": [[3, 0, 2, 1, 4]],
     "description": "USDT -> FRAX"
   },
   {
     "sellToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
     "buyToken": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
     "dexName": "CurveDex",
+    "path": [
+      "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+    ],
     "pools": ["0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7"],
+    "params": [[1, 2, 1, 1, 3]],
     "description": "USDC -> USDT"
   }
 ]
