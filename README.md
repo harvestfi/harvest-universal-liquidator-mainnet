@@ -113,6 +113,36 @@ Which name do you want to represent the dex? (Ex: uniV3)
 Setup with which file? (Ex: Paths.0000.json)
 ```
 
+### Pool config
+
+A _Pools.\*.json_ entry describes one route on one dex. `path` lists the tokens
+the route runs through, from `sellToken` to `buyToken`, and `pools` holds one
+pool per hop of that path — both dexes key their config by adjacent pair, so a
+multi-hop route sets each pool against its own hop. `params` is CurveDex only:
+one `[i, j, swap_type, pool_type, n_coins]` per hop, the curve router's
+swap_params, where `i` and `j` are the pool's coin indices for the tokens being
+swapped. Every entry carries every key — the JSON decoder needs them all, so
+`"params": []` on a BalancerDex entry.
+
+```json
+{
+  "sellToken": "0xba100000625a3754423978a60c9317c58a424e3D",
+  "buyToken": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+  "dexName": "BalancerDex",
+  "path": ["0xba10...4e3D", "0xC02a...6Cc2", "0xae78...6393"],
+  "pools": ["0x5c6e...0014", "0x1e19...0112"],
+  "params": [],
+  "description": "BAL -> WETH -> rETH"
+}
+```
+
+A setter that fails — a dex that rejects the call, a config the script cannot
+make sense of, a `dexName` it has no setter for — aborts the run rather than
+logging and moving on, so a broadcast cannot report success while leaving pools
+unset. `forge script` simulates the whole run before it sends anything, so an
+entry the script refuses stops the broadcast with nothing sent. The setters
+overwrite, so re-running after a fix is safe.
+
 ## Registry maintenance
 
 The `UniversalLiquidatorRegistry` emits no events and its `paths` mapping has no
