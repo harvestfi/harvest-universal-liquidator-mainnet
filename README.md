@@ -113,6 +113,36 @@ Which name do you want to represent the dex? (Ex: uniV3)
 Setup with which file? (Ex: Paths.0000.json)
 ```
 
+### Pool config
+
+A _Pools.\*.json_ entry describes one route on one dex. `path` lists the tokens
+the route runs through, from `sellToken` to `buyToken`, and `pools` holds one
+pool per hop of that path — both dexes key their config by adjacent pair, so a
+multi-hop route sets each pool against its own hop. `params` is CurveDex only:
+one `[i, j, swap_type, pool_type, n_coins]` per hop, the curve router's
+swap_params, where `i` and `j` are the pool's coin indices for the tokens being
+swapped. Every entry carries every key — the JSON decoder needs them all, so
+`"params": []` on a BalancerDex entry.
+
+```json
+{
+  "sellToken": "0xba100000625a3754423978a60c9317c58a424e3D",
+  "buyToken": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+  "dexName": "BalancerDex",
+  "path": ["0xba10...4e3D", "0xC02a...6Cc2", "0xae78...6393"],
+  "pools": ["0x5c6e...0014", "0x1e19...0112"],
+  "params": [],
+  "description": "BAL -> WETH -> rETH"
+}
+```
+
+A setter that fails — a dex that rejects the call, a config the script cannot
+make sense of, a `dexName` it has no setter for — aborts the run rather than
+logging and moving on, so a broadcast cannot report success while leaving pools
+unset. `forge script` simulates the whole run before it sends anything, so an
+entry the script refuses stops the broadcast with nothing sent. The setters
+overwrite, so re-running after a fix is safe.
+
 ## Registry maintenance
 
 The `UniversalLiquidatorRegistry` emits no events and its `paths` mapping has no
@@ -156,6 +186,16 @@ and it reverts on any swap — a `doHardWork` that reverts, not a bad price.
 Warnings: a hop's pool below its `minLiquidity` floor, a pair with no reverse
 path, a UniV3 hop on the default fee (indistinguishable from unset), and any dex
 whose `kind` is `unknown`.
+
+### Findings you have decided to live with
+
+A real finding that will not be fixed — a path registered on chain that cannot
+be withdrawn, since the registry has no `removePath` — can be declared in the
+manifest's `accepted` list with a `group`, a `contains` substring, and a
+required `reason`. Matching is narrow, so a different failure on the same path
+still errors. Excused findings are still printed under `ACCEPTED` with their
+reason, but do not fail the run, and an entry that stops matching anything is
+reported as `stale-accepted` so it gets cleaned up.
 
 ### Proposing better routes
 
@@ -202,6 +242,24 @@ illiquid token quotes something through almost any pool and a route that gives
 up half the value is worse than having none. A pair that *is* registered is
 compared the ordinary way instead. `registry:apply` sends these like any other
 proposal and adds the tokens and paths to the manifest.
+
+### Watching it on a schedule
+
+`registry:watch` runs the same checks and speaks up only when something needs
+doing — audit errors, registered routes that no longer quote, and routes better
+by at least `WATCH_MIN_BPS` (default 1%). It holds no key and sends no
+transaction; applying stays manual.
+
+```shell
+WATCH_DRY=1 yarn registry:watch          # print what it would say
+WATCH_MODE=audit yarn registry:watch     # just the breakage check
+```
+
+`.github/workflows/registry-watch.yml` runs the audit daily and adds the route
+check weekly. Breakage is worth knowing the same day; route improvements move
+with liquidity and a percent seen on Tuesday is often gone by Thursday. Add
+`REGISTRY_RPC_URL` plus `WATCH_DISCORD_WEBHOOK`, or `WATCH_TELEGRAM_TOKEN` with
+`WATCH_TELEGRAM_CHAT`, as repository secrets.
 
 Dexes marked `kind: "unknown"` on Ethereum are skipped by both the hop checks and
 the proposer — they do not fit any resolution shape the tooling knows.
