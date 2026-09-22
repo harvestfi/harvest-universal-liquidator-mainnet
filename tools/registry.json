@@ -1000,5 +1000,12 @@
                 "0x8236a87084f8b84306f72007f36f2618a5634494"
             ]
         }
+    ],
+    "accepted": [
+        {
+            "sellToken": "0x2da17faf782ae884faf7db2208bbc66b6e085c22",
+            "reason": "ZERO cannot be liquidated: its only registered venue is the uniV3 ZERO/WETH pool 0x90c114b7b809dcba7134c91af28659160af1761c, which holds no WETH, has nothing at the current tick, and does not quote a probe swap. All six registered paths start with that hop, so they all report the same dead pool. They are registered on chain and the registry has no removePath, so they cannot be withdrawn, only repointed, and there is nowhere to repoint them. Accepted at the token, so adding a seventh ZERO path does not reopen the noise.",
+            "since": "2026-09-22"
+        }
     ]
 }
