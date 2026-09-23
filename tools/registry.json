@@ -204,7 +204,7 @@
             "sellToken": "0xc00e94cb662c3520282e6f5717214004a7f26888",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "symbols": "COMP > WETH",
-            "dex": "uniV3",
+            "dex": "sushi",
             "path": [
                 "0xc00e94cb662c3520282e6f5717214004a7f26888",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
@@ -654,7 +654,7 @@
             "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "buyToken": "0xc00e94cb662c3520282e6f5717214004a7f26888",
             "symbols": "WETH > COMP",
-            "dex": "uniV3",
+            "dex": "sushi",
             "path": [
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0xc00e94cb662c3520282e6f5717214004a7f26888"
