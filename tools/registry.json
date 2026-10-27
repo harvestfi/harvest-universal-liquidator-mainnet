@@ -884,22 +884,21 @@
         {
             "sellToken": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
             "buyToken": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
-            "symbols": "WLFI > USDT > USD1",
+            "symbols": "WLFI > WETH > USD1",
             "dex": "uniV3",
             "path": [
                 "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
-                "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d"
             ]
         },
         {
             "sellToken": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "WLFI > USDT > WETH",
+            "symbols": "WLFI > WETH",
             "dex": "uniV3",
             "path": [
                 "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
-                "0xdac17f958d2ee523a2206206994597c13d831ec7",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
