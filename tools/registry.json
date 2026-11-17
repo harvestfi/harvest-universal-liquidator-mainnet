@@ -235,11 +235,11 @@
         {
             "sellToken": "0xc00e94cb662c3520282e6f5717214004a7f26888",
             "buyToken": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
-            "symbols": "COMP > USDC > wstETH",
+            "symbols": "COMP > WETH > wstETH",
             "dex": "uniV3",
             "path": [
                 "0xc00e94cb662c3520282e6f5717214004a7f26888",
-                "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
                 "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
             ]
         },
@@ -515,11 +515,11 @@
         {
             "sellToken": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "USD1 > USDC > WETH",
+            "symbols": "USD1 > USDT > WETH",
             "dex": "uniV3",
             "path": [
                 "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
-                "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "0xdac17f958d2ee523a2206206994597c13d831ec7",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
@@ -557,11 +557,11 @@
         {
             "sellToken": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
             "buyToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-            "symbols": "USDS > DAI > WETH",
+            "symbols": "USDS > USDC > WETH",
             "dex": "uniV3",
             "path": [
                 "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
-                "0x6b175474e89094c44da98b954eedeac495271d0f",
+                "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             ]
         },
@@ -771,11 +771,11 @@
         {
             "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
             "buyToken": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
-            "symbols": "WETH > DAI > USDS",
+            "symbols": "WETH > USDC > USDS",
             "dex": "uniV3",
             "path": [
                 "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-                "0x6b175474e89094c44da98b954eedeac495271d0f",
+                "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
                 "0xdc035d45d973e3ec169d2276ddab16f1e407384f"
             ]
         },
